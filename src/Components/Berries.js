@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import "../Styles/Berries.css";
-// import bootstrap from "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Berries() {
   // Declare a State variable
@@ -22,21 +22,33 @@ export default function Berries() {
   }, []);
 
   return (
-    <div>
-      <header className='container'>PokeBerries</header>
-      <label>Search</label>
-      <input type='text' placeholder='Write here...'></input>
+    <div className='container'>
+      <div class='container mb-5'>
+        <label>Search</label>
+        <input type='text' placeholder='Write here...'></input>
+      </div>
+      {/* Conditional operator that will check if there are any results from fetch, if not will return null */}
+      <div className='container'>
+        <div className='row row-cols-4 m-auto mb-2'>
+          {dataBerries.length
+            ? dataBerries.map((element, index) => (
+                <div className='col mb-4'>
+                  <div class='card' key={index}>
+                    <div class='card-body'>
+                      <h5 class='card-title'>{element.name}</h5>
+                      <p class='card-text'></p>
+                      <a href='#' class='btn btn-primary'>
+                        View Stats
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))
+            : null}
+        </div>
+      </div>
 
-      {dataBerries.length
-        ? dataBerries.map((element, index) => (
-            <div key={index}>
-              <h5>{element.name}</h5>
-              <p>{element.url}</p>
-            </div>
-          ))
-        : null}
-
-      <footer className='container'>FOOTER</footer>
+      <footer className='container '>FOOTER</footer>
     </div>
   );
 }
