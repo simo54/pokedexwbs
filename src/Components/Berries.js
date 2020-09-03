@@ -1,24 +1,31 @@
 import React, { useEffect } from "react";
-import axios from "axios";
 import "../Styles/Berries.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Berries() {
   // Declare a State variable
-  const [dataBerries, setDataBerries] = React.useState({ name: "", url: "" });
+  const [berries, setBerries] = React.useState();
 
   // UseEffect to fetch all berries on page loaded, the results will update the state variable
   useEffect(() => {
-    console.log("INITIALIZE EFFECT");
-    axios
-      .get("https://pokeapi.co/api/v2/berry?offset=0&limit=64/")
-      .then((response) => {
-        setDataBerries(response.data.results);
-        console.log("END EFFECT NO ERROR");
-      })
-      .catch(() => {
-        console.log("There is an error ohoh");
+    const pendingPromises = [];
+    for (let i = 1; i <= 64; i++) {
+      pendingPromises.push(
+        fetch("https://pokeapi.co/api/v2/berry/" + i)
+          .then((value) => value.json())
+          .then((value) => value)
+          .catch((e) => e)
+      );
+    }
+    Promise.all(pendingPromises).then((value) => {
+      const pendingPromises2 = value.map((element) => {
+        return fetch(element.item.url)
+          .then((value) => value.json())
+          .then((value) => value)
+          .catch((e) => e);
       });
+      Promise.all(pendingPromises2).then((value) => setBerries(value));
+    });
   }, []);
 
   return (
@@ -30,13 +37,13 @@ export default function Berries() {
       {/* Conditional operator that will check if there are any results from fetch, if not will return null */}
       <div className='container'>
         <div className='row row-cols-4 m-auto mb-2'>
-          {dataBerries.length
-            ? dataBerries.map((element, index) => (
+          {berries && berries.length
+            ? berries.map((berry) => (
                 <div className='col mb-4'>
-                  <div class='card' key={index}>
+                  <div class='card'>
                     <div class='card-body'>
-                      <h5 class='card-title'>{element.name}</h5>
-                      <p class='card-text'></p>
+                      <img img src={berry.sprites.default} alt={berry} width='80' />
+                      <h5 class='card-title'>{berry.name}</h5>
                       <a href='#' class='btn btn-primary'>
                         View Stats
                       </a>
@@ -48,7 +55,7 @@ export default function Berries() {
         </div>
       </div>
 
-      <footer className='container '>FOOTER</footer>
+      <footer className='container '>Footer</footer>
     </div>
   );
 }
