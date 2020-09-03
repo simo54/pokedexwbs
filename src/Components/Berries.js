@@ -42,7 +42,7 @@ export default function Berries() {
                 <div className='col mb-4'>
                   <div class='card'>
                     <div class='card-body'>
-                      <img img src={berry.sprites.default} alt={berry} width='80' />
+                      <img img src={berry.sprites.default} alt={berry} width='50' />
                       <h5 class='card-title'>{berry.name}</h5>
                       <a href='#' class='btn btn-primary'>
                         View Stats
