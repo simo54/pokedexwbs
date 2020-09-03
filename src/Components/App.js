@@ -1,13 +1,11 @@
 import React from "react";
+import Berries from "./Berries";
 import "../Styles/App.css";
 
 function App() {
   return (
     <div className='App'>
-      <header className='App-header'>
-        <p>TEST</p>
-        Learn React
-      </header>
+      <Berries />
     </div>
   );
 }
