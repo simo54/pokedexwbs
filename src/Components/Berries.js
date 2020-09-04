@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import "../Styles/Berries.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Effect from "./EffectBerries";
-import { Button } from "react-bootstrap";
 
 export default function Berries() {
   // Declare a State variable
   const [berries, setBerries] = React.useState();
+  console.log(berries);
 
   // UseEffect to fetch all berries on page loaded, the results will update the state variable
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function Berries() {
 
   return (
     <div className='container'>
-      <div class='container mb-5'>
+      <div className='container mb-5'>
         <label>Search</label>
         <input type='text' placeholder='Write here...'></input>
       </div>
@@ -40,14 +40,15 @@ export default function Berries() {
       <div className='container'>
         <div className='row row-cols-4 m-auto mb-2'>
           {berries && berries.length
-            ? berries.map((berry) => (
-                <div className='col mb-4'>
-                  <div class='card'>
-                    <div class='card-body'>
-                      <img img src={berry.sprites.default} alt={berry} width='50' />
-                      <h5 class='card-title'>{berry.name}</h5>
+            ? berries.map((berry, index) => (
+                <div key={index} className='col mb-4'>
+                  <div className='card'>
+                    <div className='card-body'>
+                      <img src={berry.sprites.default} alt={berry} width='50' />
+                      <h5 className='card-title'>{berry.name}</h5>
                       <>
-                        <Effect />
+                        <Effect titlePopUp={berry.name} category={berry.category.name} cost={berry.cost} />
+                        {/* cost = {berry.cost }  effect={ berry.effect_entries[0].short_effect} */}
                       </>
                     </div>
                   </div>

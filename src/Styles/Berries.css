@@ -1,3 +1,22 @@
 body {
   background-color: white;
 }
+
+.category {
+  font-weight: bold;
+}
+
+.cost {
+  font-weight: bold;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* Transform all json retrieved data with first letter capitalized */
+h5,
+h3,
+li {
+  text-transform: capitalize;
+}
