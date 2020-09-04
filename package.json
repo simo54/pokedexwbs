@@ -9,6 +9,7 @@
     "bootstrap": "^4.5.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-poke-sprites": "0.0.8",
     "react-scripts": "3.4.3"
   },
   "scripts": {
