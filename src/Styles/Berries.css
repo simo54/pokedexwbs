@@ -2,6 +2,10 @@ body {
   background-color: white;
 }
 
+.category:first-letter {
+  text-transform: capitalize;
+}
+
 .category {
   font-weight: bold;
 }
@@ -10,13 +14,19 @@ body {
   font-weight: bold;
 }
 
+.effect {
+  font-weight: bold;
+}
+
+.effect:first-letter {
+  text-transform: capitalize;
+}
+
 li {
   list-style-type: none;
 }
 
-/* Transform all json retrieved data with first letter capitalized */
 h5,
-h3,
-li {
+h3 {
   text-transform: capitalize;
 }
