@@ -7,33 +7,33 @@ function Fight() {
   const [data, setData] = useState([]);
   const [hp, setHp] = useState([100, 100]);
 
-  const fight = () => {
-    // Naming for Readability
-    const pokeOne = data[0].name_upper;
-    const pokeTwo = data[1].name_upper;
-    let hpOne = data[0].stats[0].base_stat;
-    let hpTwo = data[1].stats[0].base_stat;
-    const attOne = data[0].stats[1].base_stat;
-    const attTwo = data[1].stats[1].base_stat;
-    const defOne = data[0].stats[2].base_stat;
-    const defTwo = data[1].stats[2].base_stat;
-    const battleLog = document.querySelector(".battleLog");
-    battleLog.innerHTML = "";
-    setHp([100, 100])
-    
+  
 
-    while (true) {
+  const fight = () => {
+     // Naming for Readability
+     const pokeOne = data[0].name_upper;
+     const pokeTwo = data[1].name_upper;
+     let hpOne = data[0].stats[0].base_stat;
+     let hpTwo = data[1].stats[0].base_stat;
+     const attOne = data[0].stats[1].base_stat;
+     const attTwo = data[1].stats[1].base_stat;
+     const defOne = data[0].stats[2].base_stat;
+     const defTwo = data[1].stats[2].base_stat;
+     const battleLog = document.querySelector(".battleLog");
+     battleLog.innerHTML = "";
+     setHp([100, 100])
+    
+    const battleLoop = () => {
+      console.log("round tarts");
+      battleLog.innerHTML = "";
       if (hpOne <= 0) {
         if (hpTwo <= 0) {
             battleLog.innerHTML += `<p>What a disaster! Both pokemon faint!</p>`
-            break;
         } else {
             battleLog.innerHTML += `<p>${pokeOne} faints</p>`
-            break;
         }
     } else if (hpTwo <= 0) {
         battleLog.innerHTML += `<p>${pokeTwo} faints</p>`
-        break;
     } else {
       // Highest Defense Value is 230
         battleLog.innerHTML += `<p>Round starts:</p>`
@@ -46,17 +46,15 @@ function Fight() {
         battleLog.innerHTML += `<p>remaining HP: ${pokeOne}: ${hpOne} - ${pokeTwo}: ${hpTwo}</p>`
         // Divide remaining HP by Original HP then multiply by 100 to get %
         setHp([hpOne/data[0].stats[0].base_stat * 100, hpTwo/data[1].stats[0].base_stat * 100]);
-        console.log(hpOne/data[0].stats[0].base_stat);
+        setTimeout(battleLoop, 2000);
     }
   }
-
-  const battleLoop = () => {
-    
-  }
-
+    battleLoop();
   }
 
   const changePokemon = (value, num) => {
+    setHp([100, 100]);
+    document.querySelector(".battleLog").innerHTML = "";
     const copy = [...data];
     copy[num] = value;
     copy[num].name_upper = copy[num].name[0].toUpperCase() + copy[num].name.substring(1);
