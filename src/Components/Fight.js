@@ -36,11 +36,11 @@ function Fight() {
       // Highest Defense Value is 230
         battleLog.innerHTML += `<p>Round starts:</p>`
         battleLog.innerHTML += `<p>${pokeOne} attacks for ${attOne}</p>`
-        hpTwo = hpTwo - Math.floor(attOne * 0.5 * (1 - (defTwo / 300))) < 0 ? 0 : hpTwo - Math.floor(attOne * 0.5 * (1 - (defTwo / 300)));
-        battleLog.innerHTML += `<p>${pokeTwo} defends with a value of ${defTwo} and takes ${Math.floor(attOne * 0.5 * (1 - defTwo / 300))} damage.</p>`
+        hpTwo = hpTwo - Math.floor(attOne * Math.random() * (1 - (defTwo / 300))) < 0 ? 0 : hpTwo - Math.floor(attOne * 0.5 * (1 - (defTwo / 300)));
+        battleLog.innerHTML += `<p>${pokeTwo} defends with a value of ${defTwo} and takes ${Math.floor(attOne * Math.random() * (1 - defTwo / 300))} damage.</p>`
         battleLog.innerHTML += `<p>${pokeTwo} attacks for ${attTwo}</p>`
-        hpOne = hpOne - Math.floor(attTwo * 0.5 * (1 - (defOne / 300))) < 0 ? 0 : hpOne - Math.floor(attTwo * 0.5 * (1 - (defOne / 300)));
-        battleLog.innerHTML += `<p>${pokeOne} defends with a value of ${defOne} and takes ${Math.floor(attTwo * 0.5 * (1 - defOne / 300))} damage.</p>`
+        hpOne = hpOne - Math.floor(attTwo * Math.random() * (1 - (defOne / 300))) < 0 ? 0 : hpOne - Math.floor(attTwo * 0.5 * (1 - (defOne / 300)));
+        battleLog.innerHTML += `<p>${pokeOne} defends with a value of ${defOne} and takes ${Math.floor(attTwo * Math.random() * (1 - defOne / 300))} damage.</p>`
         // Divide remaining HP by Original HP then multiply by 100 to get %
         setHp([hpOne/data[0].stats[0].base_stat * 100, hpTwo/data[1].stats[0].base_stat * 100]);
         setTimeout(battleLoop, 3000);
