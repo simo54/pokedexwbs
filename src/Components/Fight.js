@@ -7,8 +7,6 @@ function Fight() {
   const [data, setData] = useState([]);
   const [hp, setHp] = useState([100, 100]);
 
-  
-
   const fight = () => {
      // Naming for Readability
      const pokeOne = data[0].name_upper;
@@ -43,10 +41,9 @@ function Fight() {
         battleLog.innerHTML += `<p>${pokeTwo} attacks for ${attTwo}</p>`
         hpOne = hpOne - Math.floor(attTwo * 0.5 * (1 - (defOne / 300))) < 0 ? 0 : hpOne - Math.floor(attTwo * 0.5 * (1 - (defOne / 300)));
         battleLog.innerHTML += `<p>${pokeOne} defends with a value of ${defOne} and takes ${Math.floor(attTwo * 0.5 * (1 - defOne / 300))} damage.</p>`
-        battleLog.innerHTML += `<p>remaining HP: ${pokeOne}: ${hpOne} - ${pokeTwo}: ${hpTwo}</p>`
         // Divide remaining HP by Original HP then multiply by 100 to get %
         setHp([hpOne/data[0].stats[0].base_stat * 100, hpTwo/data[1].stats[0].base_stat * 100]);
-        setTimeout(battleLoop, 2000);
+        setTimeout(battleLoop, 3000);
     }
   }
     battleLoop();
@@ -74,12 +71,14 @@ function Fight() {
         </div>
         <div className="row">
           <div className="col">
-            <button onClick={fight}>Fight!</button>
+            {data.length > 1 ? 
+            <button onClick={fight} className="btn btn-dark btn-block" id="btn_fight">Fight!</button>
+            : null }
           </div>
         </div>
         <div className="row">
           <div className="col">
-            <div className="battleLog" style={{fontFamily:"VT323"}}></div>
+            <div className="battleLog" />
           </div>
         </div>
       </div>
