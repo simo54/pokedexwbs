@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import "../Styles/Berries.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Effect from "./EffectBerries";
+import { Button } from "react-bootstrap";
 
 export default function Berries() {
   // Declare a State variable
@@ -44,9 +46,9 @@ export default function Berries() {
                     <div class='card-body'>
                       <img img src={berry.sprites.default} alt={berry} width='50' />
                       <h5 class='card-title'>{berry.name}</h5>
-                      <a href='#' class='btn btn-primary'>
-                        View Stats
-                      </a>
+                      <>
+                        <Effect />
+                      </>
                     </div>
                   </div>
                 </div>
