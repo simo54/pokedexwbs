@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import '../Styles/Fight.css';
 import Fighter from './Fighter';
+import '../Styles/Fight.css';
+
 
 function Fight() {
   const [data, setData] = useState([]);
+  const [hp, setHp] = useState([100, 100]);
 
   const fight = () => {
     // Naming for Readability
@@ -16,6 +18,9 @@ function Fight() {
     const defOne = data[0].stats[2].base_stat;
     const defTwo = data[1].stats[2].base_stat;
     const battleLog = document.querySelector(".battleLog");
+    battleLog.innerHTML = "";
+    setHp([100, 100])
+    
 
     while (true) {
       if (hpOne <= 0) {
@@ -33,13 +38,20 @@ function Fight() {
       // Highest Defense Value is 230
         battleLog.innerHTML += `<p>Round starts:</p>`
         battleLog.innerHTML += `<p>${pokeOne} attacks for ${attOne}</p>`
-        hpTwo -= Math.floor(attOne * 0.5 * (1 - (defTwo / 300)))
+        hpTwo = hpTwo - Math.floor(attOne * 0.5 * (1 - (defTwo / 300))) < 0 ? 0 : hpTwo - Math.floor(attOne * 0.5 * (1 - (defTwo / 300)));
         battleLog.innerHTML += `<p>${pokeTwo} defends with a value of ${defTwo} and takes ${Math.floor(attOne * 0.5 * (1 - defTwo / 300))} damage.</p>`
         battleLog.innerHTML += `<p>${pokeTwo} attacks for ${attTwo}</p>`
-        hpOne -= Math.floor(attTwo * 0.5 * (1 - (defOne / 300)));
+        hpOne = hpOne - Math.floor(attTwo * 0.5 * (1 - (defOne / 300))) < 0 ? 0 : hpOne - Math.floor(attTwo * 0.5 * (1 - (defOne / 300)));
         battleLog.innerHTML += `<p>${pokeOne} defends with a value of ${defOne} and takes ${Math.floor(attTwo * 0.5 * (1 - defOne / 300))} damage.</p>`
-        battleLog.innerHTML += `<p>remaining HP: ${pokeOne}: ${hpOne > 0 ? hpOne : 0} - ${pokeTwo}: ${hpTwo > 0 ? hpTwo : 0}</p>`
+        battleLog.innerHTML += `<p>remaining HP: ${pokeOne}: ${hpOne} - ${pokeTwo}: ${hpTwo}</p>`
+        // Divide remaining HP by Original HP then multiply by 100 to get %
+        setHp([hpOne/data[0].stats[0].base_stat * 100, hpTwo/data[1].stats[0].base_stat * 100]);
+        console.log(hpOne/data[0].stats[0].base_stat);
     }
+  }
+
+  const battleLoop = () => {
+    
   }
 
   }
@@ -56,16 +68,20 @@ function Fight() {
       <div className="container">
         <div className="row">
           <div className="col-lg">
-            <Fighter id={0} handleChange={(value) => changePokemon(value, 0)} poke={data} />
+            <Fighter id={0} hp={100} handleChange={(value) => changePokemon(value, 0)} poke={data} hp={hp}/>
           </div>
           <div className="col-lg">
-            <Fighter id={1} handleChange={(value) => changePokemon(value, 1)} poke={data}/>
+            <Fighter id={1} handleChange={(value) => changePokemon(value, 1)} poke={data} hp={hp}/>
           </div>
-          <div className="col-md">
+        </div>
+        <div className="row">
+          <div className="col">
             <button onClick={fight}>Fight!</button>
           </div>
-          <div className="row">
-            <div className="battleLog"></div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <div className="battleLog" style={{fontFamily:"VT323"}}></div>
           </div>
         </div>
       </div>

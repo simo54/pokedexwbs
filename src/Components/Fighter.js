@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import '../Styles/Fighter.css'
 
-function Fighter({ id, handleChange, poke }) {
+function Fighter({ id, handleChange, poke, hp }) {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -39,7 +40,7 @@ function Fighter({ id, handleChange, poke }) {
         <p>Error: {error}</p> : poke[id] ? 
         <div>
           <div style={{height: "150px"}}>
-            <img src={`https://play.pokemonshowdown.com/sprites/ani/${poke[id].name}.gif`} style={{position:"absolute", left: "50%", top:"20%",  transform: "translate(-50%, -50%)"}} />
+            <img src={`https://play.pokemonshowdown.com/sprites/ani/${poke[id].name}.gif`} />
           </div>
           <h5 className="card-title">{poke[id].name_upper}</h5>
           <ul className="list-group list-group-flush">
@@ -47,10 +48,13 @@ function Fighter({ id, handleChange, poke }) {
             <li className="list-group-item">Attack value: {poke[id].stats[1].base_stat}</li>
             <li className="list-group-item">Defense value: {poke[id].stats[2].base_stat}</li>
           </ul>
+          <div className="progress">
+            <div className="progress-bar bg-success" role="progressbar" style={{width: `${hp[id]}%`}}></div>
+          </div>
         </div> : 
         <p>Select a Pokemon!</p>}
         <input className="pokeNum"></input>
-        <button onClick={changePoke} className="btn btn-info">Let's go!</button>
+        <button onClick={changePoke} className="btn btn-info">Select Pokemon</button>
 
       </div>
     </div>
