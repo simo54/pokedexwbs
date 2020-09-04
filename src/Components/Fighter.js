@@ -44,7 +44,7 @@ function Fighter({ id, handleChange, poke, hp }) {
           </div>
           <h5 className="card-title">{poke[id].name_upper}</h5>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">HP: {Math.floor(poke[id].stats[0].base_stat / 100 * hp[id])}</li>
+            <li className="list-group-item">HP: {Math.floor(poke[id].stats[0].base_stat / 100 * hp[id]) > 0 ? Math.floor(poke[id].stats[0].base_stat / 100 * hp[id]) : 0}</li>
             <li className="list-group-item">Attack value: {poke[id].stats[1].base_stat}</li>
             <li className="list-group-item">Defense value: {poke[id].stats[2].base_stat}</li>
           </ul>

@@ -34,13 +34,16 @@ function Fight() {
         battleLog.innerHTML += `<p>${pokeTwo} faints</p>`
     } else {
       // Highest Defense Value is 230
+      // assign a random value to multiply with for every pokemon "chance"
+        let randomOne = Math.random();
+        let randomTwo = Math.random();
         battleLog.innerHTML += `<p>Round starts:</p>`
         battleLog.innerHTML += `<p>${pokeOne} attacks for ${attOne}</p>`
-        hpTwo = hpTwo - Math.floor(attOne * Math.random() * (1 - (defTwo / 300))) < 0 ? 0 : hpTwo - Math.floor(attOne * 0.5 * (1 - (defTwo / 300)));
-        battleLog.innerHTML += `<p>${pokeTwo} defends with a value of ${defTwo} and takes ${Math.floor(attOne * Math.random() * (1 - defTwo / 300))} damage.</p>`
+        hpTwo = hpTwo - Math.floor(attOne * randomOne * (1 - (defTwo / 300))) < 0 ? 0 : hpTwo - Math.floor(attOne * randomOne * (1 - (defTwo / 300)));
+        battleLog.innerHTML += `<p>${pokeTwo} defends with a value of ${defTwo} and takes ${Math.floor(attOne * randomOne * (1 - defTwo / 300))} damage.</p>`
         battleLog.innerHTML += `<p>${pokeTwo} attacks for ${attTwo}</p>`
-        hpOne = hpOne - Math.floor(attTwo * Math.random() * (1 - (defOne / 300))) < 0 ? 0 : hpOne - Math.floor(attTwo * 0.5 * (1 - (defOne / 300)));
-        battleLog.innerHTML += `<p>${pokeOne} defends with a value of ${defOne} and takes ${Math.floor(attTwo * Math.random() * (1 - defOne / 300))} damage.</p>`
+        hpOne = hpOne - Math.floor(attTwo * randomTwo * (1 - (defOne / 300))) < 0 ? 0 : hpOne - Math.floor(attTwo * randomTwo * (1 - (defOne / 300)));
+        battleLog.innerHTML += `<p>${pokeOne} defends with a value of ${defOne} and takes ${Math.floor(attTwo * randomTwo * (1 - defOne / 300))} damage.</p>`
         // Divide remaining HP by Original HP then multiply by 100 to get %
         setHp([hpOne/data[0].stats[0].base_stat * 100, hpTwo/data[1].stats[0].base_stat * 100]);
         setTimeout(battleLoop, 3000);
@@ -60,7 +63,7 @@ function Fight() {
 
   return (
     <div className="App">
-      <div className="container">
+      <div className="container" style={{border:"none"}}>
         <div className="row">
           <div className="col-lg">
             <Fighter id={0} hp={100} handleChange={(value) => changePokemon(value, 0)} poke={data} hp={hp}/>
