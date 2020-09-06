@@ -29,7 +29,7 @@ export default function Berries() {
         });
         Promise.all(pendingPromises2).then((value) => setBerries(value));
       });
-    }, 5000); // <--- Current Loading Time Wait
+    }, 6000); // <--- Current Loading Time Wait
   }, []);
 
   // Search function, it will filter the results and display the match (or the close match)
