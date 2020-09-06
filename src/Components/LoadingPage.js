@@ -51,7 +51,7 @@ if (!false) {
           }
           var url = embedurl + embedSubPath;
           var sharemethod = e.getAttribute("data-share-method") || "tenor";
-          if (sharemethod == "host") {
+          if (sharemethod === "host") {
             var hosturl;
             if (canonical) hosturl = canonical.href;
             else hosturl = document.location.href;
@@ -65,10 +65,10 @@ if (!false) {
     }
 
     function readystatechange() {
-      if (document.readyState == "complete") ready();
+      if (document.readyState === "complete") ready();
     }
 
-    if (document.readyState == "complete" || (!document.attachEvent && document.readyState == "interactive")) {
+    if (document.readyState === "complete" || (!document.attachEvent && document.readyState === "interactive")) {
       setTimeout(ready, 1);
     } else {
       if (document.addEventListener) {
@@ -101,7 +101,7 @@ export default function LoadingPage() {
           </div>
         </div>
       </div> */}
-      <div className='container text-center mt-5 pt-5'>
+      <div className='container text-center mt-5 pt-5' id='pokemonGif'>
         <div className='tenor-gif-embed' data-postid='5930125' data-share-method='host' data-width='100%' data-aspect-ratio='1.0'></div>
       </div>
     </>
