@@ -1,0 +1,15 @@
+* {
+  font-family: "VT323";
+}
+
+.Fight {
+    text-align: center;
+}
+
+.battleLog {
+  border: solid gray;
+}
+
+#btn_fight {
+  margin: 30px 0;
+}
