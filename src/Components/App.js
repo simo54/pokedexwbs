@@ -1,6 +1,6 @@
 import React from "react";
-import Berries from "./Berries";
-import "../Styles/App.css";
+import Berries from "../Components/Berries/Berries";
+import "./Styles/App.css";
 
 function App() {
   return (
