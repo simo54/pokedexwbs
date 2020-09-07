@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../Styles/Fighter.css'
+import './Styles/Fighter.css'
 
 function Fighter({ id, handleChange, poke, hp }) {
   const [error, setError] = useState(false);

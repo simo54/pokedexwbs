@@ -1,6 +1,5 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "../Styles/App.css";
 import Fight from "./Fight.js"
 import Berries from "../Components/Berries/Berries";
 import "./Styles/App.css";

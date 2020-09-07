@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Fighter from './Fighter';
-import '../Styles/Fight.css';
+import './Styles/Fight.css';
 
 
 function Fight() {
