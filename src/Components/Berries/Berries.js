@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import Effect from "./EffectBerries"; // Effect on the View Stats Button
-import Loading from "./LoadingPage"; // Gif showing up on loading page (current 5sec waiting)
-import { Button } from "react-bootstrap"; // For more regarding importing style with react-bootstrap info https://react-bootstrap.netlify.app/getting-started/introduction/#importing-components
+import Effect from "../Berries/EffectBerries"; // Effect on the View Stats Button
+import Loading from "../Berries/LoadingPage"; // Gif showing up on loading page (current 5sec waiting)
 import "../Styles/Berries.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -29,7 +28,7 @@ export default function Berries() {
         });
         Promise.all(pendingPromises2).then((value) => setBerries(value));
       });
-    }, 6000); // <--- Current Loading Time Wait
+    }, 4000); // <--- Current Loading Time Wait
   }, []);
 
   // Search function, it will filter the results and display the match (or the close match)
@@ -53,7 +52,10 @@ export default function Berries() {
 
   return (
     <div className='container'>
-      <div className='container mb-5 mt-5 d-flex justify-content-center'>
+      <div className='container mt-3'>
+        <img id='pikaHead' src='https://www.freepngimg.com/thumb/pokemon/37475-6-pikachu-transparent-image.png' width='50' height='50' />
+      </div>
+      <div className='container mb-5 mt-0 d-flex justify-content-center'>
         {/* Search Input for filtering elements */}
         <div>
           <img src='https://cdn.icon-icons.com/icons2/851/PNG/512/Direction_icon-icons.com_67565.png' width='40' className='mr-2' />
