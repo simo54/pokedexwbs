@@ -1,0 +1,20 @@
+#pokemonGif {
+  animation-name: fadeInOut;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+#doduo {
+  -webkit-transform: rotate(90deg);
+}
+
+/* FadeInOut animation to make gif more looke like a loading component */
+@keyframes fadeInOut {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
