@@ -3,9 +3,11 @@ import React, {useState} from 'react';
 function PokeCard ({name, img}) {
 
     return(
-        <div>
-            <h1>{name}</h1>
-            <img src={img} />
+        <div className="card">
+            <div className="card-body">
+                <img src={img} alt={name} width="80" />
+                <h5 className='card-title'>{name}</h5>
+            </div>
         </div>
     )
 

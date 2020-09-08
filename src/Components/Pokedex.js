@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PokeCard from './PokeCard';
+import './Styles/Fight.css'
 
 
 function Pokedex() {
@@ -31,19 +32,21 @@ function Pokedex() {
 
 
     return (
-        <div>
-            {error ? (
-                <div>
-                    Something went wrong!
-                </div>
-            ) : null}
-            {pokelist && pokelist.results.length ?
-                (pokelist.results.map((element, index) => (
-                    <div key={index}>
-                        <PokeCard name={element.name} img={element.imgSrc}/>                        
+        <div className="container">
+            <div className='row row-cols-4 m-auto mb-2'>
+                {error ? (
+                    <div>
+                        Something went wrong!
                     </div>
-                )))
-            : null}
+                ) : null}
+                {pokelist && pokelist.results.length ?
+                    (pokelist.results.map((element, index) => (
+                        <div className="col mb-4"key={index}>
+                            <PokeCard name={element.name} img={element.imgSrc}/>                        
+                        </div>
+                    )))
+                : null}
+            </div>
         </div>
     )
 }
