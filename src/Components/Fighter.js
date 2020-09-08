@@ -36,7 +36,7 @@ function Fighter({ id, handleChange, poke, fightHp }) {
       <div className="card">
       {loading ? 
         <p>loading...</p>  : error ? 
-        <p>Error: {error}</p> : poke[id] ? 
+        <p>Error: {error}</p> : poke[id] ? (
         <div>
           <div style={{height: "150px"}}>
             <img className="figtherImg" src={`https://play.pokemonshowdown.com/sprites/ani/${poke[id].name}.gif`} />
@@ -50,6 +50,7 @@ function Fighter({ id, handleChange, poke, fightHp }) {
           <div className="progress">
             <div className="progress-bar bg-success" role="progressbar" style={{width: `${fightHp[id]}%`}}></div>
           </div>
+        </div>
         ) : (
           <p>Select a Pokemon!</p>
         )}

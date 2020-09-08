@@ -4,6 +4,7 @@ import Fight from "./Fight.js";
 import Berries from "../Components/Berries/Berries";
 import "./Styles/NavBar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Pokedex from "./Pokedex.js";
 
 export default function Navbar() {
   return (
@@ -49,7 +50,7 @@ export default function Navbar() {
         </form> */}
       </nav>
       <Switch>
-        <Route path='/' exact />
+        <Route path='/' exact component={Pokedex} />
         <Route path='/berries' component={Berries} />
         <Route path='/battle' component={Fight} />
       </Switch>
