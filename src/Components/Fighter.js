@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import './Styles/Fighter.css'
+import React, { useState } from "react";
+import "./Styles/Fighter.css";
 
 function Fighter({ id, handleChange, poke, fightHp }) {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-
 
   const changePoke = () => {
     setError(false);
@@ -12,25 +11,25 @@ function Fighter({ id, handleChange, poke, fightHp }) {
     if (input === "") {
       setError("No input");
     } else if (input > 807) {
-      setError("Too high. Max: 807")
+      setError("Too high. Max: 807");
     } else if (input < 0) {
-      setError("Too low. Min: 1")
+      setError("Too low. Min: 1");
     } else {
-    setLoading(true);
-    fetch(`http://pokeapi.co/api/v2/pokemon/${input}`)
-    .then((response) => {
-      return response.json();
-    })
-    .then((info) => {
-      handleChange(info);
-      setLoading(false);
-    })
-    .catch((err) => {
-      setError(err);
-    })
-    document.querySelectorAll(".pokeNum")[id].value = "";
+      setLoading(true);
+      fetch(`http://pokeapi.co/api/v2/pokemon/${input}`)
+        .then((response) => {
+          return response.json();
+        })
+        .then((info) => {
+          handleChange(info);
+          setLoading(false);
+        })
+        .catch((err) => {
+          setError(err);
+        });
+      document.querySelectorAll(".pokeNum")[id].value = "";
     }
-  }
+  };
 
   return (
     <div className="App">
@@ -51,11 +50,13 @@ function Fighter({ id, handleChange, poke, fightHp }) {
           <div className="progress">
             <div className="progress-bar bg-success" role="progressbar" style={{width: `${fightHp[id]}%`}}></div>
           </div>
-        </div> : 
-        <p>Select a Pokemon!</p>}
-        <input className="pokeNum"></input>
-        <button onClick={changePoke} className="btn btn-info">Select Pokemon</button>
-
+        ) : (
+          <p>Select a Pokemon!</p>
+        )}
+        <input className='pokeNum'></input>
+        <button onClick={changePoke} className='btn btn-info'>
+          Select Pokemon
+        </button>
       </div>
     </div>
   );
