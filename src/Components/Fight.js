@@ -66,10 +66,10 @@ function Fight() {
       <div className="container" style={{border:"none"}}>
         <div className="row">
           <div className="col-lg">
-            <Fighter id={0} hp={100} handleChange={(value) => changePokemon(value, 0)} poke={data} hp={hp}/>
+            <Fighter id={0} fightHp={100} handleChange={(value) => changePokemon(value, 0)} poke={data} hp={hp}/>
           </div>
           <div className="col-lg">
-            <Fighter id={1} handleChange={(value) => changePokemon(value, 1)} poke={data} hp={hp}/>
+            <Fighter id={1} fightHp={100} handleChange={(value) => changePokemon(value, 1)} poke={data} hp={hp}/>
           </div>
         </div>
         <div className="row">
