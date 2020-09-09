@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Effect from "../Berries/EffectBerries"; // Effect on the View Stats Button
 import Loading from "../Berries/LoadingPage"; // Gif showing up on loading page (current 5sec waiting)
 import "../Styles/Berries.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Berries() {
   const [berries, setBerries] = React.useState();

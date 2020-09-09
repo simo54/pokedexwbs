@@ -1,10 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Fight from "./Fight.js";
+import Fight from "./Fight";
 import Berries from "../Components/Berries/Berries";
+import Pokedex from "./Pokedex";
 import "./Styles/NavBar.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Pokedex from "./Pokedex.js";
 
 export default function Navbar() {
   return (
@@ -50,9 +49,10 @@ export default function Navbar() {
         </form> */}
       </nav>
       <Switch>
-        <Route path='/' exact component={Pokedex} />
         <Route path='/berries' component={Berries} />
+        <Route path='/battle/:pokeName' component={Fight} />
         <Route path='/battle' component={Fight} />
+        <Route path='/' exact component={Pokedex} />
       </Switch>
     </Router>
   );

@@ -39,7 +39,7 @@ function Fighter({ id, handleChange, poke, fightHp }) {
         <p>Error: {error}</p> : poke[id] ? (
         <div>
           <div style={{height: "150px"}}>
-            <img className="figtherImg" src={`https://play.pokemonshowdown.com/sprites/ani/${poke[id].name}.gif`} />
+            <img className="fighterImg" src={`https://play.pokemonshowdown.com/sprites/ani/${poke[id].name}.gif`} />
           </div>
           <h5 className="card-title">{poke[id].name_upper}</h5>
           <ul className="list-group list-group-flush">
