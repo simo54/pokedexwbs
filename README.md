@@ -31,16 +31,16 @@ The project is going to demonstrate how React can be used for creating website a
 
 The PokéWorld will be published on Github page under the following link for a certain amount of time. In case the link will not redirect on the website you may install the project with the following step:
 
-<If you are already into coding>
-1. Download the repository [here](https://github.com/simo54/pokedexwbs/archive/master.zip) or under the button "Code"
-1. Inside your Code Editor use npm install to install the necessary nodes
-1. Launch the project on your localhost to start playing!
+ - If you are already into coding - 
+1. Download the repository [here](https://github.com/simo54/pokedexwbs/archive/master.zip) or under the button "Code" from the repository
+2. Inside your Code Editor use `npm install` to install the necessary nodes
+3. Launch the project on your localhost to start playing!
 
-<If you are NOT into coding>
+ - If you are **NOT** into coding - 
 1. Download and install a Coding text editor (examples are Visual Studio Code https://visualstudio.microsoft.com/, Atom https://atom.io/)
-1. Install Node.js https://nodejs.org/en/ (Recommended version)
-1. Inside your Code Editor, open the console and use npm install to install all the necessary nodes
-1. When its done, launch the project on your console with the command npm start, it will open a webpage in your default browser to start playing!
+2. Install Node.js https://nodejs.org/en/ (Recommended version)
+3. Inside your Code Editor, open the console and use `npm install` to install all the necessary nodes
+4. When its done, launch the project on your console with the command `npm start`, it will open a webpage in your default browser to start playing!
 
 ---
 
@@ -50,10 +50,9 @@ If you wish to help and contribute on the project please open an issue on github
 
 ## Credits
 
-This group work made possible thanks to the work of   [Zee](https://github.com/zeelib1)  Zee, [Josh](https://github.com/koedukativ) and [Simone](https://github.com/simo54) .
+This group work made possible thanks to the work of   [Zee](https://github.com/zeelib1), [Josh](https://github.com/koedukativ) and [Simone](https://github.com/simo54) .
 
-Icon Pikachu was provided by freepngimg.com
-Icon Navigation was provided by icon-icons.com/
-Icon Gym Badge was provided by Roundicons-freebies https://www.flaticon.com/authors/roundicons-freebies
-Animated Gif for the loading page was provided by https://tenor.com/
-All information related to Pokémons has been taken from https://pokeapi.co/, click on the link to find out more about their API.
+- Icon Pikachu was provided by [freepngimg](freepngimg.com)
+- Icon Navigation was provided by [Icons-Icons](icon-icons.com/)
+- Icon Gym Badge was provided by [Roundicons-freebies](https://www.flaticon.com/authors/roundicons-freebies)
+- All information related to Pokémons has been taken from [PokeApi](https://pokeapi.co/)
