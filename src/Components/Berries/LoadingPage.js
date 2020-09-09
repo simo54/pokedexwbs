@@ -1,6 +1,5 @@
 import React from "react";
 import "../Styles/Loading.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 // Gif Script
 if (!false) {
