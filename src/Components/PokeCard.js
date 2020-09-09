@@ -16,7 +16,6 @@ function PokeCard ({name, img}) {
             </div>
         </div>
     )
-
 }
 
 export default PokeCard;
