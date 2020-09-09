@@ -2,9 +2,9 @@
 
 ============THIS FILE IS WORKING ON PROGRESS ============
 
-Description
+## Description
 
-This group work will provide you more details and information about the japanese creatures called Pokémon.
+This group work will provide you more details and information about the japanese creatures called [Pokémon](https://en.wikipedia.org/wiki/Pok%C3%A9mon).
 
 On the website you will have the chance to:
 
@@ -14,43 +14,43 @@ On the website you will have the chance to:
 
 The project is going to demonstrate how React can be used for creating website and web-app and how to fetch data from a public API.
 
-Tech Stack used in this project:
+**Tech Stack** used in this project:
 
-- HTML5
-- CSS3
-- JavaScript
-- Bootstrap
-- React
-- React Route
+- [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS3](https://developer.mozilla.org/en-US/docs/Glossary/CSS)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Glossary/JavaScript)
+- [Bootstrap](https://developer.mozilla.org/en-US/docs/Glossary/Bootstrap)
+- [React](https://reactjs.org/)
+- [ReactRoute](https://reactrouter.com/)
 
-Usage
+## Usage
 
 // WORKING ON PROGRESS //
 
-Installation
+## Installation
 
 The PokéWorld will be published on Github page under the following link for a certain amount of time. In case the link will not redirect on the website you may install the project with the following step:
 
 <If you are already into coding>
-1. Download the repository here or under the button "Code"
-2. Inside your Code Editor use npm install to install the necessary nodes
-3. Launch the project on your localhost to start playing!
+1. Download the repository [here](https://github.com/simo54/pokedexwbs/archive/master.zip) or under the button "Code"
+1. Inside your Code Editor use npm install to install the necessary nodes
+1. Launch the project on your localhost to start playing!
 
 <If you are NOT into coding>
 1. Download and install a Coding text editor (examples are Visual Studio Code https://visualstudio.microsoft.com/, Atom https://atom.io/)
-2. Install Node.js https://nodejs.org/en/ (Recommended version)
-3. Inside your Code Editor, open the console and use npm install to install all the necessary nodes
-4. When its done, launch the project on your console with the command npm start, it will open a webpage in your default browser to start playing!
+1. Install Node.js https://nodejs.org/en/ (Recommended version)
+1. Inside your Code Editor, open the console and use npm install to install all the necessary nodes
+1. When its done, launch the project on your console with the command npm start, it will open a webpage in your default browser to start playing!
 
 ---
 
-Contribute
+## Contribute
 
 If you wish to help and contribute on the project please open an issue on github with your suggestions and/or your code implementation.
 
-Credits
+## Credits
 
-This group work made possible thanks to the work of Zee, Josh and Simone.
+This group work made possible thanks to the work of   [Zee](https://github.com/zeelib1)  Zee, [Josh](https://github.com/koedukativ) and [Simone](https://github.com/simo54) .
 
 Icon Pikachu was provided by freepngimg.com
 Icon Navigation was provided by icon-icons.com/
