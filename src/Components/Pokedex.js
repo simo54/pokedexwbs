@@ -7,48 +7,43 @@ function Pokedex() {
     const [pokelist, setPokelist] = useState();
     const [fetchUrl, setFetchUrl] = useState("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0");
     const [error, setError] = useState(false);
+    const [pokeNum, setPokeNum] = useState(1);
 
     const loadMore = () => {
-        fetch(fetchUrl)
-        .then((data) => data.json())
-        .then((data) => {
-            setError(false);
-            setFetchUrl(data.next);
-            data.results.map((element) => {
-                let url = element.url.slice(-1) === "/" ?
-                element.url.substring(0, element.url.length -1)
-                : element.url;
-                url = url.substring(url.lastIndexOf("/") + 1);
-                element.imgSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${url}.png`;
-                return element;
-        });
-        data.results = [...pokelist.results, ...data.results];
-        setPokelist(data);
-    });
-};
+        const pendingPromises = [];
+        for (let i = 1; i <= pokeNum + 19; i++) {
+            pendingPromises.push(
+            fetch(`http://pokeapi.co/api/v2/pokemon/${i}`)
+                .then((data) => data.json())
+                .then((data) => data)
+                .catch((e) => e)
+                );
+        }
+        Promise.all(pendingPromises).then((value) => {
+            setPokelist(value);
+            });
+
+        setPokeNum(pokeNum + 20);
+        console.log(pokeNum);
+    }
 
     useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0")
-        .then((data) => data.json())
-        .then((data) => {
-            console.log(data);
-            setError(false);
-            setFetchUrl(data.next);
-            data.results.map((element) => {
-                let url = element.url.slice(-1) === "/" ?
-                element.url.substring(0, element.url.length -1)
-                : element.url;
-                url = url.substring(url.lastIndexOf("/") + 1);
-                element.imgSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${url}.png`;
-                return element;
-            })
-            setPokelist(data);
-        })
-        .catch((err) => {
-            setError(true);
-        });
-    }, []);
+        const pendingPromises = [];
+        for (let i = pokeNum; i <= pokeNum + 19; i++) {
+            pendingPromises.push(
+            fetch(`http://pokeapi.co/api/v2/pokemon/${i}`)
+                .then((data) => data.json())
+                .then((data) => data)
+                .catch((e) => e)
+                );
+        }
+        Promise.all(pendingPromises).then((value) => {
+            setPokelist(value);
+            });
 
+        setPokeNum(pokeNum + 20);
+        console.log(pokeNum);
+    }, []);
 
     return (
         <div className="container">
@@ -58,10 +53,10 @@ function Pokedex() {
                         Something went wrong!
                     </div>
                 ) : null}
-                {pokelist && pokelist.results.length ?
-                    (pokelist.results.map((element, index) => (
+                {pokelist  ?
+                    (pokelist.map((element, index) => (
                         <div className="col mb-4"key={index}>
-                            <PokeCard name={element.name} img={element.imgSrc}/>                        
+                            <PokeCard name={element.name} img={element.sprites.front_default} types={element.types} number={element.id}/>                        
                         </div>
                     )))
                 : null}

@@ -5,6 +5,7 @@ import Berries from "../Components/Berries/Berries";
 import Pokedex from "./Pokedex";
 import "./Styles/NavBar.css";
 
+
 export default function Navbar() {
   return (
     <Router>

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Fighter from "./Fighter";
 import "./Styles/Fight.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { useParams, useLocation } from "react-router-dom";
 
 function Fight() {
   const [data, setData] = useState([]);
@@ -22,7 +22,6 @@ function Fight() {
     setHp([100, 100]);
 
     const battleLoop = () => {
-      console.log("round tarts");
       battleLog.innerHTML = "";
       if (hpOne <= 0) {
         if (hpTwo <= 0) {
