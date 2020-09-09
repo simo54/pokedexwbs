@@ -61,7 +61,7 @@ function Pokedex() {
                 {pokelist && pokelist.results.length ?
                     (pokelist.results.map((element, index) => (
                         <div className="col mb-4"key={index}>
-                            <PokeCard name={element.name} img={element.imgSrc}/>                        
+                            <PokeCard name={element.name} img={element.imgSrc} id={index+1}/>                        
                         </div>
                     )))
                 : null}

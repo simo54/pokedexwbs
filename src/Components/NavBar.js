@@ -4,6 +4,7 @@ import Fight from "./Fight";
 import Berries from "../Components/Berries/Berries";
 import Pokedex from "./Pokedex";
 import "./Styles/NavBar.css";
+import PokemonCard from "./PokemonCard";
 
 export default function Navbar() {
   return (
@@ -53,6 +54,8 @@ export default function Navbar() {
         <Route path='/battle/:pokeName' component={Fight} />
         <Route path='/battle' component={Fight} />
         <Route path='/' exact component={Pokedex} />
+        <Route path='/details/:id' component={PokemonCard} />
+        
       </Switch>
     </Router>
   );
