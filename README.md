@@ -4,7 +4,7 @@
 
 ## Description
 
-This group work will provide you more details and information about the japanese creatures called [Pokémon](https://en.wikipedia.org/wiki/Pok%C3%A9mon).
+This group work will provide you more details and information about the creatures called [Pokémon](https://en.wikipedia.org/wiki/Pok%C3%A9mon).
 
 On the website you will have the chance to:
 
