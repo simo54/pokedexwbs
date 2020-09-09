@@ -5,7 +5,6 @@ import './Styles/Fight.css'
 
 function Pokedex() {
     const [pokelist, setPokelist] = useState();
-    const [fetchUrl, setFetchUrl] = useState("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0");
     const [error, setError] = useState(false);
     const [pokeNum, setPokeNum] = useState(1);
 
@@ -22,9 +21,7 @@ function Pokedex() {
         Promise.all(pendingPromises).then((value) => {
             setPokelist(value);
             });
-
         setPokeNum(pokeNum + 20);
-        console.log(pokeNum);
     }
 
     useEffect(() => {
@@ -42,7 +39,6 @@ function Pokedex() {
             });
 
         setPokeNum(pokeNum + 20);
-        console.log(pokeNum);
     }, []);
 
     return (
@@ -56,7 +52,7 @@ function Pokedex() {
                 {pokelist  ?
                     (pokelist.map((element, index) => (
                         <div className="col mb-4"key={index}>
-                            <PokeCard name={element.name} img={element.sprites.front_default} types={element.types} number={element.id}/>                        
+                            <PokeCard element={element} name={element.name} img={element.sprites.front_default} types={element.types} number={element.id}/>                        
                         </div>
                     )))
                 : null}

@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
-function PokeCard ({name, img, types, number}) {
+function PokeCard ({name, img, types, number, element}) {
+
     return(
         <div className="card">
             <div className="card-body">
@@ -11,7 +12,7 @@ function PokeCard ({name, img, types, number}) {
                 {types[1] ? 
                 <p>{types[1].type.name}</p> :
                 null }
-                <Link to={`/battle/${number}`}>
+                <Link to={{ pathname: `/battle/${number}`, state: {element}}}>
                     <button>Fight</button>
                 </Link>
                 <Link to={`/details/${number}`}>
