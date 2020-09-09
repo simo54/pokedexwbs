@@ -52,6 +52,7 @@ If you wish to help and contribute on the project please open an issue on github
 
 This group work made possible thanks to the work of   [Zee](https://github.com/zeelib1), [Josh](https://github.com/koedukativ) and [Simone](https://github.com/simo54) .
 
+- Tab Icon was provided by [Those Icons](https://www.flaticon.com/authors/those-icons)
 - Icon Pikachu was provided by [freepngimg](freepngimg.com)
 - Icon Navigation was provided by [Icons-Icons](icon-icons.com/)
 - Icon Gym Badge was provided by [Roundicons-freebies](https://www.flaticon.com/authors/roundicons-freebies)
