@@ -19,7 +19,7 @@ function EvolutionOne ({id,type}) {
         })
     },[])
     type = image.type;
-    console.log(type)
+  
     return(
        
         
