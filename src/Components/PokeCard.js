@@ -1,10 +1,9 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import "./Styles/Pokedex.css";
 
-function PokeCard({ name, img, types, number, element}) {
+function PokeCard({ name, img, types, number, element }) {
   return (
     <div className='card'>
       <div className='card-body'>
@@ -25,7 +24,6 @@ function PokeCard({ name, img, types, number, element}) {
       </div>
     </div>
   );
-
 }
 
 export default PokeCard;
