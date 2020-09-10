@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
-function PokeCard({ name, img, types, number, element, id }) {
+function PokeCard({ name, img, types, number, element}) {
   return (
     <div className='card'>
       <div className='card-body'>
@@ -18,7 +18,7 @@ function PokeCard({ name, img, types, number, element, id }) {
         <Link to={{ pathname: `/battle/${number}`, state: { element } }}>
           <Button className='mr-2'>Fight</Button>
         </Link>
-        <Link to={`/details/${id}`}>
+        <Link to={`/details/${number}`}>
           <Button className='ml-2'>Details</Button>
         </Link>
       </div>
