@@ -1,22 +1,30 @@
-import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
-import PokemonCard from './PokemonCard';
 
-function PokeCard ({name, img, id}) {
-    return(
-        <div className="card">
-            <div className="card-body">
-                <img src={img} alt={name} width="100" />
-                <h5 className='card-title'>{name}</h5>
-                <Link to={`/battle/${name}`}>
-                    <button>Fight</button>
-                </Link>
-                <Link to={`/details/${id}`}>
-                    <button>Details</button>
-                </Link>
-            </div>
-        </div>
-    )
+import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+
+function PokeCard({ name, img, types, number, element, id }) {
+  return (
+    <div className='card'>
+      <div className='card-body'>
+        <img src={img} alt={name} width='100' />
+        <h5 className='card-title'>
+          #{number}
+          {""} {""}
+          {name}
+        </h5>
+        <p>{types[0].type.name}</p>
+        {types[1] ? <p>{types[1].type.name}</p> : null}
+        <Link to={{ pathname: `/battle/${number}`, state: { element } }}>
+          <Button className='mr-2'>Fight</Button>
+        </Link>
+        <Link to={`/details/${id}`}>
+          <Button className='ml-2'>Details</Button>
+        </Link>
+      </div>
+    </div>
+  );
+
 }
 
 export default PokeCard;

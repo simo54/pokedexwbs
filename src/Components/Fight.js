@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Fighter from "./Fighter";
 import "./Styles/Fight.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { useParams, useLocation } from "react-router-dom";
 
 function Fight() {
   const [data, setData] = useState([]);
   const [hp, setHp] = useState([100, 100]);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  let path = useParams();
+
+  useEffect(() =>{
+    let start = path.pokeName;
+    changePokemon(0, start);
+    },[]);
+
 
   const fight = () => {
     // Naming for Readability
@@ -22,7 +32,6 @@ function Fight() {
     setHp([100, 100]);
 
     const battleLoop = () => {
-      console.log("round tarts");
       battleLog.innerHTML = "";
       if (hpOne <= 0) {
         if (hpTwo <= 0) {
@@ -52,7 +61,7 @@ function Fight() {
     battleLoop();
   };
 
-  const changePokemon = (value, num) => {
+  const changeFighters = (value, num) => {
     setHp([100, 100]);
     document.querySelector(".battleLog").innerHTML = "";
     const copy = [...data];
@@ -61,15 +70,40 @@ function Fight() {
     setData(copy);
   };
 
+  const changePokemon = (id, input) => {
+    setError(false);
+    if (input === "") {
+      setError("No input");
+    } else if (input > 807) {
+      setError("Too high. Max: 807");
+    } else if (input < 0) {
+      setError("Too low. Min: 1");
+    } else {
+      setLoading(true);
+      fetch(`http://pokeapi.co/api/v2/pokemon/${input}`)
+        .then((response) => {
+          return response.json();
+        })
+        .then((info) => {
+          changeFighters(info, id);
+          setLoading(false);
+        })
+        .catch((err) => {
+          setError(err);
+        });
+      document.querySelectorAll(".pokeNum")[id].value = "";
+    }
+  };
+
   return (
     <div className='App'>
       <div className='container' style={{ border: "none" }}>
         <div className='row'>
           <div className='col-lg'>
-            <Fighter id={0} fightHp={hp} handleChange={(value) => changePokemon(value, 0)} poke={data} />
+            <Fighter id={0} fightHp={hp} handleChange={() => changePokemon(0, document.querySelectorAll(".pokeNum")[0].value)} poke={data} />
           </div>
           <div className='col-lg'>
-            <Fighter id={1} fightHp={hp} handleChange={(value) => changePokemon(value, 1)} poke={data}  />
+            <Fighter id={1} fightHp={hp} handleChange={() => changePokemon(1, document.querySelectorAll(".pokeNum")[1].value)} poke={data}  />
           </div>
         </div>
         <div className='row'>

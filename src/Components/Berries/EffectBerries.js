@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Modal } from "react-bootstrap";
 import "../Styles/Berries.css";
 
-export default function MyVerticallyCenteredModal({ titlePopUp, category, cost, effect }) {
+export default function Effect({ titlePopUp, category, cost, effect }) {
   const [smShow, setSmShow] = React.useState(false);
 
   return (
