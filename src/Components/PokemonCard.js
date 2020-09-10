@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Button, Container } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
-import "./Styles/PokemonImage.css";
-import { FaBeer, FaBluetooth } from "react-icons/fa";
-import { IconName } from "react-icons/bs";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import EvolutionOne from "./EvolutionOne";
-import pokeball from "../img/pokeball.png";
+
+import React, { useState, useEffect} from 'react';
+import { Button, Container} from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+import './Styles/PokemonImage.css';
+import EvolutionOne from './EvolutionOne'
+import pokeball from '../img/pokeball.png'
 
 function PokemonCard(props) {
   const routerID = props.match.params.id;
