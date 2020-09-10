@@ -52,7 +52,7 @@ export default function Berries() {
       {berries && berries.length ? (
         <>
           <div className='container mt-3 d-flex justify-content-center'>
-            <img id='pikaHead' alt='pikachu' src='https://www.freepngimg.com/thumb/pokemon/37475-6-pikachu-transparent-image.png' width='50' height='50' />
+            <img id='pichu' alt='pichu' src='https://www.uokpl.rs/fpng/f/447-4476468_pikachu-and-pichu.png' width='60' />
           </div>
           <div className='container mb-5 mt-0 d-flex justify-content-center'>
             {/* Search Input for filtering elements */}
