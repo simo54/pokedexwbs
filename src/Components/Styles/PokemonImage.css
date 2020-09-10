@@ -1,10 +1,13 @@
+:root{
+    overflow-x:hidden ;
+}
 #card-container  {
     font-family: 'Lato', sans-serif;
     font-size: 1.5rem;
 }
 
 .pokemonImage {
-   border-radius: 30px;
+   border-radius: 1em;
 }
 
 .pokemonTitle {
@@ -31,6 +34,10 @@
     background-color: yellow;
 }
 
+.bootstrap-container {
+   margin: 0 auto;
+}
+
 #card-body {
     background-color: rgba(243,183,56,1);
    
@@ -45,6 +52,9 @@
 
 .pokemonList{
     display: flex;
+    flex-direction: column;
+    gap: 2em; 
+    
 }
 
 .abilities-flex-container{
@@ -69,9 +79,9 @@ justify-content: space-around;
 }
 
 
-.titleSpan{
+/* .titleSpan{
     margin-left: 5em;
-}
+} */
 
 #cardBody{
     display: flex;
@@ -80,8 +90,18 @@ justify-content: space-around;
     background-color: #4ea8d7;
     border-radius: 1em;
     color:white;
-    margin-top: 1em;
     font-size: 1.5rem;
+    
+
+    
+}
+
+#card-title {
+    background-color: red;
+    color: black;
+    border:2px solid black;
+    margin-bottom: 0.25em;
+  
     
 }
 
@@ -91,15 +111,108 @@ justify-content: space-around;
     align-content: center;
 }
 
+@media(max-width:1000px){
+    #pokemon-evolution-flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-content: center;
+    }
+    #pokeball{
+        margin-left: 3em;
+        display: none;
+    }
+    
+}
+
 #evolution-box {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    flex:1;
     border:1px solid purple;
-    padding: 1em;
+    
+    
     background-color: #616161;
-    border-radius: 10%;
+    border-radius: 8%;
+    color:white;
+    font-weight: lighter;
+    width:100%;
+     height: 100%;
+     margin-top: 1em;;
+     
+   
     
     
 }
 
-#evolution-box img {
-    width: 75%;
+
+
+
+
+.types{
+    color:white;
+    margin-top: 1em;
+}
+
+#evolution-image img {
+    
+    width: 45%;
+    height: 45%;
+    object-fit: cover;
+   
+}
+
+#pokeball{
+    margin-left: 3em;
+}
+
+
+/* #evolution-image-box {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+/* #evolution-box img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+} */
+
+/* 
+@media only screen and (max-width: 600px)  {
+    #pokemon-evolution-flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-content: center;
+    }
+      } */
+#form{
+    font-weight: lighter;
+    font-family: 'Lato';
+    letter-spacing: 0.1em;
+    
+}
+
+#form-box {
+    background-color:lightyellow;
+    border-radius: 30px;
+    margin-bottom: 0.85em;
+    padding: 0.5em;
+}
+
+#evolution-title{
+    font-weight: bold;
+    width: 80%;
+    margin:0 auto;
+    
+    margin-top: 1em;
+    letter-spacing: 0.1em;
+    color: black;
+    border-radius: 0.785em;
+    border:1px solid black;
+    background-color: #f3b738;
+    
 }

@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 function EvolutionOne ({id,type}) {
     
     
+    
     const [image, setImage] = useState({});
     useEffect(()=>{
         fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then(res=>res.json()).then((data) => {
@@ -17,17 +18,23 @@ function EvolutionOne ({id,type}) {
             })
         })
     },[])
-    
+    type = image.type;
+    console.log(type)
     return(
        
-        <div id="evolution-box">
+        
             
-        <h1>{image.name}</h1> 
-       <img src={image.image} alt="pokemon image" />
-       <h1>{image.id}</h1>
-       <h1>Type : <Button variant="success">{image.type}</Button></h1>
- 
+        <div id="evolution-box" >
+         
+        <h3>{image.name}</h3> 
+       
+       <img src={image.image} alt="pokemon image"/>
+      
+      
+       <h3 className="types">Type : <Button variant="success">{image.type}</Button></h3>
+       
        </div>
+       
     )
 }
 

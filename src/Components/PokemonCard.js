@@ -6,9 +6,11 @@ import { FaBeer, FaBluetooth } from 'react-icons/fa';
 import { IconName } from "react-icons/bs";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import EvolutionOne from './EvolutionOne'
+import pokeball from '../img/pokeball.png'
 
 function PokemonCard(props){
 const routerID = props.match.params.id
+const type = props.match.params.type;
   const [pokemon, setPokemon] = useState({});
   const [currentId, setCurrentId] = useState(routerID);
   const [isLoading, setIsLoading] = useState(setTimeout(()=>{setIsLoading(false)},450));
@@ -29,7 +31,7 @@ const routerID = props.match.params.id
               weight:data.weight,
               image:data.sprites.other.dream_world.front_default,
               hp:data.base_experience,
-              ability:data.abilities[0].ability.name,
+              ability:data.abilities[0].ability.name.toUpperCase(),
               id:data.id,
               stats:data.stats[1].base_stat,
               attack:data.stats[1].name,
@@ -66,10 +68,10 @@ return (
   <Container id="card-container" >
    
      {/* <Spinner animation="grow" variant="light" /> */}
-    <Card  className="bootstrap-container" style={{ width: '40rem' }}>
-           
+    <Card  className="bootstrapContainer">
+          
       <Card.Body id="card-body" >
-  
+      <h1 id="card-title">Pokemon card</h1>
         <Card.Title className="pokemonTitle"><p>{pokemon.name}</p><span className="titleSpan"><i class="fab fa-superpowers"></i>HP  {pokemon.hp}</span></Card.Title>
           <div id="container">
             <img alt="pokemon image"  id="pokemonImage" src={pokemon.image}></img>
@@ -88,6 +90,7 @@ return (
                 <p><strong>Attack:</strong> {pokemon.stats}</p> 
                 <p><strong>Weight:</strong> {pokemon.weight}</p> 
             </div>
+            <img id="pokeball" src={pokeball} alt="" width="110px" />
             <div>
               <p><strong>Special:</strong> {pokemon.abilityTwo}</p>
               <p><strong>Move:</strong> {pokemon.move}</p>
@@ -115,9 +118,9 @@ return (
    
           
       <Container>
-        <div>
+        <div id="form-box">
           <h1>Form</h1>
-         <h3>{pokemon.form}</h3>  
+         <h3 id="form">{pokemon.form}</h3>  
          </div>
          
        <Card.Body id="cardBody">
@@ -142,30 +145,28 @@ return (
 
 
 
-       {/* ###########################
-       
-       */}
-
-
 
 <Container>
   
   
-  
+            <h1 id="evolution-title">Evolutions</h1>
         <div id="pokemon-evolution-flex">
           
         
         <Card.Body>
          
-        <EvolutionOne id={currentId}/>
+        <EvolutionOne id={currentId} type={type}/>
         </Card.Body>
+
         <Card.Body>
           
-        <EvolutionOne id={parseInt(currentId)+1}/>
+        <EvolutionOne id={parseInt(currentId)+1} type= {type}/>
         </Card.Body>
+
         <Card.Body>
-        <EvolutionOne id={parseInt(currentId)+2}/>
+        <EvolutionOne id={parseInt(currentId)+2} type={type}/>
         </Card.Body>
+        
         </div>
       </Container>
        
