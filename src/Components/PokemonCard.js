@@ -56,7 +56,11 @@ const type = props.match.params.type;
       .catch((e) => console.log(e));
   }, [currentId]);
 
- 
+  const evolutionaryImage = <EvolutionOne id={currentId} type={type}/>
+  console.log(evolutionaryImage)
+  const evolutionaryImageTwo =  <EvolutionOne id={parseInt(currentId)+1} type= {type}/>
+  const evolutionaryImageThree =  <EvolutionOne id={parseInt(currentId)+2} type= {type}/>
+  
 return (
   
 <div className="pokemonList">
@@ -153,18 +157,21 @@ return (
         <div id="pokemon-evolution-flex">
           
         
-        <Card.Body>
+        <Card.Body id="cardBodyOne">
          
-        <EvolutionOne id={currentId} type={type}/>
-        </Card.Body>
+        {evolutionaryImage}
+     
 
-        <Card.Body>
+        </Card.Body>
+       
+        <Card.Body id="cardBodyOne">
           
-        <EvolutionOne id={parseInt(currentId)+1} type= {type}/>
+       {evolutionaryImageTwo}
+        
         </Card.Body>
 
-        <Card.Body>
-        <EvolutionOne id={parseInt(currentId)+2} type={type}/>
+        <Card.Body id="cardBodyOne">
+          {evolutionaryImageThree}
         </Card.Body>
         
         </div>
