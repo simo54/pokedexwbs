@@ -2,6 +2,15 @@ body {
   background-color: white;
 }
 
+/* Overwriting bootstrap style for the button color */
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #00bcd4 !important;
+  border-color: #00bcd4 !important;
+}
+
 .category:first-letter {
   text-transform: capitalize;
 }

@@ -2,6 +2,16 @@ body {
   margin: 0;
 }
 
-#formSearch {
-  flex-direction: row-reverse;
+h1 {
+  /* -webkit-text-stroke: 1px #2f6eb5; Sperimental => https://css-tricks.com/almanac/properties/t/text-stroke/ */
+  font-weight: bold !important;
 }
+
+@media screen and (max-width: 991px) {
+  .nav-item {
+    margin: 0;
+    justify-items: end;
+    justify-self: end;
+    justify-content: end;
+  }
+} ;

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Effect from "../Berries/EffectBerries"; // Effect on the View Stats Button
-import Loading from "../Berries/LoadingPage"; // Gif showing up on loading page (current 5sec waiting)
 import "../Styles/Berries.css";
 
 export default function Berries() {
@@ -8,26 +7,24 @@ export default function Berries() {
 
   // UseEffect to fetch all berries on page loaded, the results will update the state variable
   useEffect(() => {
-    setTimeout(() => {
-      const pendingPromises = [];
-      for (let i = 1; i <= 64; i++) {
-        pendingPromises.push(
-          fetch("https://pokeapi.co/api/v2/berry/" + i)
-            .then((value) => value.json())
-            .then((value) => value)
-            .catch((e) => e)
-        );
-      }
-      Promise.all(pendingPromises).then((value) => {
-        const pendingPromises2 = value.map((element) => {
-          return fetch(element.item.url)
-            .then((value) => value.json())
-            .then((value) => value)
-            .catch((e) => e);
-        });
-        Promise.all(pendingPromises2).then((value) => setBerries(value));
+    const pendingPromises = [];
+    for (let i = 1; i <= 64; i++) {
+      pendingPromises.push(
+        fetch("https://pokeapi.co/api/v2/berry/" + i)
+          .then((value) => value.json())
+          .then((value) => value)
+          .catch((e) => e)
+      );
+    }
+    Promise.all(pendingPromises).then((value) => {
+      const pendingPromises2 = value.map((element) => {
+        return fetch(element.item.url)
+          .then((value) => value.json())
+          .then((value) => value)
+          .catch((e) => e);
       });
-    }, 5000); // <--- Current Loading Time Wait 5s
+      Promise.all(pendingPromises2).then((value) => setBerries(value));
+    });
   }, []);
 
   // Search function, it will filter the results and display the match (or the close match)
@@ -70,25 +67,25 @@ export default function Berries() {
       {/* END of conditional operator */}
 
       <div className='container'>
-        <div className='row row-cols-4 m-auto mb-2'>
+        <div className='row m-auto mb-2'>
           {/* ---> Conditional operator that will check if there are any results from the fetch*/}
-          {berries && berries.length ? (
-            <h1>hello</h1> &&
-            berries.map((berry, index) => (
-              <div key={index} className='col mb-4 cardToSearch'>
-                <div className='card'>
-                  <div className='card-body'>
-                    <img alt='cherry' src={berry.sprites.default} alt={berry} width='50' />
-                    <h5 className='card-title'>{berry.name}</h5>
-                    {/* Effect component, this provide the modal effect on clicking "View Stats", for the code => "./EffectBerries"  */}
-                    <Effect titlePopUp={berry.name} category={berry.category.name} cost={berry.cost} effect={berry.effect_entries[0].short_effect} />
+          {
+            berries && berries.length
+              ? <h1>hello</h1> &&
+                berries.map((berry, index) => (
+                  <div key={index} className='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-4 cardToSearch'>
+                    <div className='card'>
+                      <div className='card-body'>
+                        <img alt='cherry' src={berry.sprites.default} alt={berry} width='50' />
+                        <h5 className='card-title'>{berry.name}</h5>
+                        {/* Effect component, this provide the modal effect on clicking "View Stats", for the code => "./EffectBerries"  */}
+                        <Effect titlePopUp={berry.name} category={berry.category.name} cost={berry.cost} effect={berry.effect_entries[0].short_effect} />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <Loading /> // Loading component, follow "./LoadingPage" for the code
-          )}
+                ))
+              : null // Loading component, follow "./LoadingPage" for the code
+          }
           {/* ---> End of conditional Operator */}
         </div>
       </div>
