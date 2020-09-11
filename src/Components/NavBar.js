@@ -7,7 +7,6 @@ import Pokedex from "./Pokedex";
 import "./Styles/NavBar.css";
 import PokemonCard from "./PokemonCard";
 
-
 export default function Navbar() {
   const [open, setOpen] = React.useState(false);
 
@@ -50,20 +49,13 @@ export default function Navbar() {
             </ul>
           </div>
         </Collapse>
-        {/* <form className='form-inline my-1 my-lg-0 ' id='formSearch'>
-          <input className='form-control mr-sm-1' type='search' placeholder='Search' aria-label='Search' />
-          <button className='btn btn-outline-success my-1 my-sm-0' type='submit'>
-            Search
-          </button>
-        </form> */}
       </nav>
       <Switch>
         <Route path='/berries' component={Berries} />
         <Route path='/battle/:pokeName' component={Fight} />
         <Route path='/battle' component={Fight} />
-        <Route path='/' exact component={Pokedex} />
         <Route path='/details/:id' component={PokemonCard} />
-        
+        <Route path='/' exact component={Pokedex} />
       </Switch>
     </Router>
   );
