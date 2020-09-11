@@ -27,21 +27,23 @@ function Pokedex() {
     setPokeNum(pokeNum + 20);
   };
 
+  // This function will be executed when form is submitted
   function textSubmit(e) {
     e.preventDefault();
-    const inputNumber = document.getElementById("inputSearch").value;
+    const inputNumber = document.getElementById("inputSearch").value; // We get the value of the input
     let firstPromise = new Promise((resolve, reject) => {
+      // We create a promise in order to be sure to get the data when we will pass the info to the Effected component
       fetch(`https://pokeapi.co/api/v2/pokemon/${inputNumber}`)
         .then((value) => value.json())
         .then((value) => resolve(value))
         .catch(() => reject());
     });
     firstPromise
-      .then((value) => {
-        let name = value.name; // get the data from here and then display
-        let img = value.sprites.front_default;
-        let types = value.types;
-        let id = value.id;
+      .then((pokejson) => {
+        let name = pokejson.name; // get the data from here and then display
+        let img = pokejson.sprites.front_default;
+        let types = pokejson.types;
+        let id = pokejson.id;
         setPokeSearch([{ name, img, types, id }]);
         setToggle(true);
       })
@@ -70,6 +72,7 @@ function Pokedex() {
       {/* We hide the search bar during loading to prevent crashes in case the user immediately use the search bar */}
       {pokelist && pokelist.length ? (
         <form onSubmit={textSubmit}>
+          {/* On submit the form will trigger a fetch of data (check above on textsubmit function) and after getting the result wanted (from 1 to 8**) the toggle will be triggered, if is true the modal will be activated and all data from fetch will go directly on the EffectPokedex component. When x is clicked, the toggle will be turned off */}
           {toggle === true ? <Effectdex name={pokeSearch[0].name} img={pokeSearch[0].img} number={pokeSearch[0].id} types={pokeSearch[0].types} toggler={() => setToggle(false)} /> : null}
           <div className='container mt-3 d-flex justify-content-center'>
             <img id='pikaHead' alt='pikachu' src='https://www.freepngimg.com/thumb/pokemon/37475-6-pikachu-transparent-image.png' width='50' height='50' />

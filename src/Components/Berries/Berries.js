@@ -69,23 +69,21 @@ export default function Berries() {
       <div className='container'>
         <div className='row m-auto mb-2'>
           {/* ---> Conditional operator that will check if there are any results from the fetch*/}
-          {
-            berries && berries.length
-              ? <h1>hello</h1> &&
-                berries.map((berry, index) => (
-                  <div key={index} className='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-4 cardToSearch'>
-                    <div className='card'>
-                      <div className='card-body'>
-                        <img alt='cherry' src={berry.sprites.default} alt={berry} width='50' />
-                        <h5 className='card-title'>{berry.name}</h5>
-                        {/* Effect component, this provide the modal effect on clicking "View Stats", for the code => "./EffectBerries"  */}
-                        <Effect titlePopUp={berry.name} category={berry.category.name} cost={berry.cost} effect={berry.effect_entries[0].short_effect} />
-                      </div>
+          {berries && berries.length
+            ? <h1>hello</h1> &&
+              berries.map((berry, index) => (
+                <div key={index} className='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-4 cardToSearch'>
+                  <div className='card'>
+                    <div className='card-body'>
+                      <img alt='cherry' src={berry.sprites.default} alt={berry} width='50' />
+                      <h5 className='card-title'>{berry.name}</h5>
+                      {/* Effect component, this provide the modal effect on clicking "View Stats", for the code => "./EffectBerries"  */}
+                      <Effect titlePopUp={berry.name} category={berry.category.name} cost={berry.cost} effect={berry.effect_entries[0].short_effect} />
                     </div>
                   </div>
-                ))
-              : null // Loading component, follow "./LoadingPage" for the code
-          }
+                </div>
+              ))
+            : null}
           {/* ---> End of conditional Operator */}
         </div>
       </div>
