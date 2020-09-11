@@ -1,7 +1,5 @@
 # PokéWorld
 
-============THIS FILE IS WORKING ON PROGRESS ============
-
 ## Description
 
 This group work will provide you more details and information about the creatures called [Pokémon](https://en.wikipedia.org/wiki/Pok%C3%A9mon).
@@ -9,9 +7,13 @@ This group work will provide you more details and information about the creature
 On the website you will have the chance to:
 
 - Find and/or discover new Pokémons
-  ![Pokdex](src/Components/Screenshots/PokedexComponent.PNG)
+  ![Pokedex](src/Components/Screenshots/PokedexComponent.PNG)
+  ![Search](src/Components/Screenshots/SearchOption.PNG)
+  ![Details](src/Components/Screenshots/DetailsComponent.PNG)
 - Simulate a battle between them with their own original combat stats
+  ![Battle](src/Components/Screenshots/BattleComponent.PNG)
 - Gather information on Pokémon Berries
+  ![Berries](src/Components/Screenshots/BerriesComponent.PNG)
 
 The project is going to demonstrate how React can be used for creating website and web-app and how to fetch data from a public API.
 
