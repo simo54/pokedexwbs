@@ -50,8 +50,9 @@ If you are **NOT** into coding
 
 1. Download and install a Coding text editor (examples are [Visual Studio Code](https://visualstudio.microsoft.com/), [Atom](https://atom.io/))
 2. Install [Node.js](https://nodejs.org/en/) (Recommended version)
-3. Inside your Code Editor, open the console and use `npm install` to install all the necessary nodes
-4. When its done, launch the project on your console with the command `npm start`, it will open a webpage in your default browser to start playing!
+3. Download the repository [here](https://github.com/simo54/pokedexwbs/archive/master.zip) or under the button "Code" from the repository
+4. Inside your the pokedexwbs, open the console and use `npm install` to install all the necessary nodes
+5. When its done, launch the project on your console with the command `npm start`, it will open a webpage in your default browser to start playing!
 
 ## Contribute
 
