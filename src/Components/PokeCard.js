@@ -13,8 +13,9 @@ function PokeCard({ name, img, types, number, element }) {
           {""} {""}
           {name}
         </h5>
-        <p className='toUpper'>{types[0].type.name}</p>
-        {types[1] ? <p className='toUpper'>{types[1].type.name}</p> : null}
+        <h5 style={{display: "inline-block"}}><span className={`ml-2 badge badge-${types[0].type.name} toUpper`}>{types[0].type.name}</span></h5>
+        {types[1] ? <h5 style={{display: "inline-block"}}><span className={`ml-2 badge badge-${types[1].type.name} toUpper`}>{types[1].type.name}</span></h5> : null}
+        <p></p>
         <Link to={{ pathname: `/battle/${number}`, state: { element } }}>
           <Button className='mr-2'>Fight</Button>
         </Link>
