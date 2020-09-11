@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Button, Container } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
-import "./Styles/PokemonImage.css";
-import EvolutionOne from "./EvolutionOne";
-import pokeball from "../img/pokeball.png";
+
+import React, { useState, useEffect} from 'react';
+import { Button, Container} from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+import './Styles/PokemonImage.css';
+import EvolutionOne from './EvolutionOne'
+import pokeball from '../img/pokeball.png'
 
 function PokemonCard(props) {
   const routerID = props.match.params.id;
@@ -46,6 +47,9 @@ function PokemonCard(props) {
               genus: speciesData.genera[7].genus,
               evolution: speciesData.evolves_from_species,
               type: data.types[0].type.name,
+              formSwitch:speciesData.forms_switchable,
+              evolutionChain: speciesData.evolution_chain.url
+              
             };
             setPokemon(newPokemonFormat);
           })
@@ -53,45 +57,8 @@ function PokemonCard(props) {
       })
       .catch((e) => console.log(e));
   }, [currentId]);
+console.log(pokemon.evolutionChain)
 
-<<<<<<< HEAD
-  const evolutionaryImage = <EvolutionOne id={currentId} type={type}/>
-  const evolutionaryImageTwo =  <EvolutionOne id={parseInt(currentId)+1} type= {type}/>
-  const evolutionaryImageThree =  <EvolutionOne id={parseInt(currentId)+2} type= {type}/>
-  
-return (
-  
-<div className="pokemonList">
-  
-      
-    {/* <input id="input" /><button onClick={clickHandler}>Click here</button> */}
-   
-     
-  <Container id="card-container" >
-   
-     {/* <Spinner animation="grow" variant="light" /> */}
-    <Card  className="bootstrapContainer">
-          
-      <Card.Body id="card-body" >
-      <h1 id="card-title">Pokemon card</h1>
-        <Card.Title className="pokemonTitle"><p>{pokemon.name}</p><span className="titleSpan"><i class="fab fa-superpowers"></i>HP  {pokemon.hp}</span></Card.Title>
-          <div id="container">
-            <img alt="pokemon image"  id="pokemonImage" src={pokemon.image}></img>
-          </div>
-  
-          <Card.Img variant="top"  className="pokemon-image" />
-          <hr className="division-line"/>
-          <div className="abilities-flex-container">
-            <Button className="bootstrapButton">Ability</Button><span>{pokemon.ability}</span><span><i class="fas fa-fist-raised"></i></span>
-          </div>
-          <Card.Text id="cardDetails">
-           
-            <div>
-            
-              <p><strong>Base stats:</strong> {pokemon.stats}</p>
-                <p><strong>Attack:</strong> {pokemon.stats}</p> 
-                <p><strong>Weight:</strong> {pokemon.weight}</p> 
-=======
   return (
     <div className='pokemonList'>
       {/* <input id="input" /><button onClick={clickHandler}>Click here</button> */}
@@ -100,7 +67,7 @@ return (
         {/* <Spinner animation="grow" variant="light" /> */}
         <Card className='bootstrapContainer'>
           <Card.Body id='card-body'>
-            <h1 id='card-title'>Pokémon card</h1>
+            <h1 id='card-title'>Pokemon card</h1>
             <Card.Title className='pokemonTitle'>
               <p>{pokemon.name}</p>
               <span className='titleSpan'>
@@ -109,7 +76,6 @@ return (
             </Card.Title>
             <div id='container'>
               <img alt='pokemon image' id='pokemonImage' src={pokemon.image}></img>
->>>>>>> b4174937e06663294e567e4740ec1f5da3ab927c
             </div>
 
             <Card.Img variant='top' className='pokemon-image' />
@@ -181,59 +147,57 @@ return (
               <strong>Growth rate:</strong> {pokemon.growth_rate}
             </p>
           </div>
-<<<<<<< HEAD
-          
-       </Card.Body>
-
-
-
-
-<Container>
-  
-  
-            <h1 id="evolution-title">Evolutions</h1>
-        <div id="pokemon-evolution-flex">
-          
-        
-        <Card.Body id="cardBodyOne">
-         
-        {evolutionaryImage}
-     
-
         </Card.Body>
-       
-        <Card.Body id="cardBodyOne">
-          
-       {evolutionaryImageTwo}
-        
-        </Card.Body>
-
-        <Card.Body id="cardBodyOne">
-          {evolutionaryImageThree}
-        </Card.Body>
-        
-        </div>
-      </Container>
-       
-        
-        
-=======
-        </Card.Body>
-        <Container>
+        {pokemon.evolution === null ? <Container className="firstELement">
           <h1 id='evolution-title'>Evolutions</h1>
           <div id='pokemon-evolution-flex'>
             <Card.Body>
               <EvolutionOne id={currentId} type={type} />
             </Card.Body>
             <Card.Body>
-              <EvolutionOne id={parseInt(currentId) + 1} type={type} />
+             
+              
+               <EvolutionOne  id={parseInt(currentId) + 1} type={type} />
             </Card.Body>
             <Card.Body>
               <EvolutionOne id={parseInt(currentId) + 2} type={type} />
             </Card.Body>
           </div>
         </Container>
->>>>>>> b4174937e06663294e567e4740ec1f5da3ab927c
+        :
+        pokemon.evolutionChain === `https://pokeapi.co/api/v2/evolution-chain/${currentId}/` || pokemon.formSwitch === false ?  <Container className="secondContainer">
+          <h1 id='evolution-title'>Evolutions</h1>
+          <div id='pokemon-evolution-flex'>
+            <Card.Body>
+              <EvolutionOne id={parseInt(currentId) -1} type={type} />
+            </Card.Body>
+            <Card.Body>
+             
+              
+               <EvolutionOne   id={currentId} type={type} />
+            </Card.Body>
+            <Card.Body>
+              <EvolutionOne id={parseInt(currentId) + 1} type={type} />
+            </Card.Body>
+          </div>
+        </Container>:
+
+        pokemon.evolutionChain === `https://pokeapi.co/api/v2/evolution-chain/${currentId}/` || pokemon.formSwitch === true ?  <Container className="secondContainer">
+          <h1 id='evolution-title'>Evolutions</h1>
+          <div id='pokemon-evolution-flex'>
+            <Card.Body>
+              <EvolutionOne id={parseInt(currentId) -2} type={type} />
+            </Card.Body>
+            <Card.Body>
+             
+              
+               <EvolutionOne  id={parseInt(currentId) - 1} type={type} />
+            </Card.Body>
+            <Card.Body>
+              <EvolutionOne id={currentId} type={type} />
+            </Card.Body>
+          </div>
+        </Container>:null }
       </Container>
     </div>
   );
