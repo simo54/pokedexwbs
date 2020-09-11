@@ -24,15 +24,15 @@ export default function Effect({ name, img, types, number, element, toggler }) {
             <img src={img} alt={name} width='100' />
           </div>
           <div className='text-center'>
-            <p className='toUpper'>{types[0].type.name}</p>
-            {types[1] ? <p className='toUpper'>{types[1].type.name}</p> : null}
+            <span className={`ml-2 badge badge-${types[0].type.name} toUpper`}>{types[0].type.name}</span>
+            {types[1] ? <span className={`ml-2 badge badge-${types[1].type.name} toUpper`}>{types[1].type.name}</span> : null}
           </div>
           <div className='text-center'>
             <Link to={{ pathname: `/battle/${number}`, state: { element } }}>
-              <Button className='mr-2'>Fight</Button>
+              <Button className='mt-2 mr-2'>Fight</Button>
             </Link>
             <Link to={`/details/${number}`}>
-              <Button className='ml-2'>Details</Button>
+              <Button className='mt-2 ml-2'>Details</Button>
             </Link>
           </div>
         </Modal.Body>
