@@ -15,7 +15,7 @@ On the website you will have the chance to:
 - Gather information on Pokémon Berries
   ![Berries](src/Components/Screenshots/BerriesComponent.PNG)
 
-The project is going to demonstrate how React can be used for creating website and web-app and how to fetch data from a public API.
+The project is going to demonstrate how React can be used for creating website and how to fetch data from a public API.
 
 **Tech Stack** used in this project:
 
@@ -28,7 +28,7 @@ The project is going to demonstrate how React can be used for creating website a
 
 ## Usage
 
-Inside the Pokédex page, if you want to discover new Pokémons insert a number bewteen 1 and 807, you can also simulate or explore the details with the buttons provided in the pop-up.
+Inside the Pokédex page, if you want to discover new Pokémons insert a number bewteen 1 and 807 or simply input the name of your favorite Pokémon, you can also simulate or explore the details with the buttons provided in the pop-up.
 You also have the change to load more pokemon using the Load Button at the very end of the page.
 
 You can also simulate a battle into the Battle component, you can either chose 2 new Pokémons or chose only 1 more if you previously imported from Pokédex with the Battle Button. When two Pokémons are selected, press the Fight Button and to see who will win.
