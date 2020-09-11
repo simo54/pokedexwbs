@@ -1,10 +1,9 @@
-
-import React, { useState, useEffect} from 'react';
-import { Button, Container} from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
-import './Styles/PokemonImage.css';
-import EvolutionOne from './EvolutionOne'
-import pokeball from '../img/pokeball.png'
+import React, { useState, useEffect } from "react";
+import { Button, Container } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
+import "./Styles/PokemonImage.css";
+import EvolutionOne from "./EvolutionOne";
+import pokeball from "../img/pokeball.png";
 
 function PokemonCard(props) {
   const routerID = props.match.params.id;
@@ -63,7 +62,7 @@ function PokemonCard(props) {
         {/* <Spinner animation="grow" variant="light" /> */}
         <Card className='bootstrapContainer'>
           <Card.Body id='card-body'>
-            <h1 id='card-title'>Pokemon card</h1>
+            <h1 id='card-title'>Pokémon card</h1>
             <Card.Title className='pokemonTitle'>
               <p>{pokemon.name}</p>
               <span className='titleSpan'>

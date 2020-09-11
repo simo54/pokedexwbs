@@ -9,6 +9,7 @@ This group work will provide you more details and information about the creature
 On the website you will have the chance to:
 
 - Find and/or discover new Pokémons
+  ![Pokdex](src/Components/Screenshots/PokedexComponent.PNG)
 - Simulate a battle between them with their own original combat stats
 - Gather information on Pokémon Berries
 
@@ -34,7 +35,7 @@ Finally, if you want to gather more information on Berries, you can navigate ins
 
 ## Installation
 
-The PokéWorld will be published on Github page under the following link for a certain amount of time. In case the link will not redirect on the website you may install the project with the following step:
+At the moment the project is only available on local installation.
 
 If you are into coding
 
