@@ -1,5 +1,7 @@
 # PokéWorld
 
+[![Run on Repl.it](https://repl.it/badge/github/simo54/pokedexwbs)](https://repl.it/github/simo54/pokedexwbs)
+
 ## Description
 
 This group work will provide you more details and information about the creatures called [Pokémon](https://en.wikipedia.org/wiki/Pok%C3%A9mon).
