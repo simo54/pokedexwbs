@@ -10,6 +10,7 @@ function Pokedex() {
   const [pokeNum, setPokeNum] = useState(1);
   const [pokeSearch, setPokeSearch] = useState([]);
   const [toggle, setToggle] = useState(false);
+  console.log(pokelist);
 
   const loadMore = () => {
     const pendingPromises = [];
@@ -63,7 +64,6 @@ function Pokedex() {
     Promise.all(pendingPromises).then((value) => {
       setPokelist(value);
     });
-
     setPokeNum(pokeNum + 20);
   }, []);
 
